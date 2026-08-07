@@ -48,7 +48,6 @@ body {
   object-fit: cover;
   background: #1a1a1a;
   flex-shrink: 0;
-  filter: grayscale(100%);
 }
 
 .meta {
