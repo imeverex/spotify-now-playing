@@ -25,16 +25,23 @@ This widget needs a free program called Python to run.
 
 1. Click the Start button (bottom left of your screen)
 2. Type: PowerShell
-3. Click "Windows PowerShell" when it shows up
-4. A blue/black text window will open. Click inside it and paste
-   this exactly, then press Enter:
+3. Click "Windows PowerShell" when it shows up. A blue/black text
+   window will open, this is where you'll paste the command below.
+4. Copy the command: click right before the "w" in "winget" below,
+   hold your mouse button down and drag to the end of the line to
+   highlight it, then press Ctrl+C on your keyboard to copy it.
 
    winget install --id Python.Python.3.12
 
-5. If it asks a question and shows [Y] Yes, type Y and press Enter
-6. Wait for it to finish (you'll see your cursor blink on its own
+5. Click inside the blue/black PowerShell window so your cursor is
+   blinking there
+6. Press Ctrl+V to paste it in (if that doesn't work, right-click
+   inside the window instead, that also pastes)
+7. Press Enter to run it
+8. If it asks a question and shows [Y] Yes, type Y and press Enter
+9. Wait for it to finish (you'll see your cursor blink on its own
    line again when it's done)
-7. Close that window
+10. Close that window
 
 
 STEP 3: Start the widget
@@ -60,7 +67,10 @@ STEP 4: Add it to OBS
 2. Under "Sources", click the + button
 3. Click "Browser"
 4. Give it any name (like "Spotify Widget") and click OK
-5. In the "URL" box, delete whatever is there and type:
+5. In the "URL" box, delete whatever is already in there. Then
+   either type this exactly, or copy it the same way you did in
+   Step 2 (highlight it, Ctrl+C) and paste it in (click the URL
+   box first, then Ctrl+V):
 
    http://127.0.0.1:5960/overlay.html
 
