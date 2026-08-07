@@ -8,8 +8,8 @@ if not exist ".venv\Scripts\python.exe" (
 )
 
 ".venv\Scripts\python.exe" -m pip install pyinstaller -q
-".venv\Scripts\python.exe" -m PyInstaller --onefile --icon=app-icon.ico --add-data "static;static" --name "Spotify Now Playing" nowplaying_server.py
+".venv\Scripts\python.exe" -m PyInstaller --onefile --icon=app-icon.ico --add-data "static;static" --name "Blurs Spotify Widget" nowplaying_server.py
 
 echo.
-echo Built: dist\Spotify Now Playing.exe
+echo Built: dist\Blurs Spotify Widget.exe
 pause

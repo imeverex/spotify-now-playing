@@ -8,13 +8,13 @@ currently playing in Spotify.
 
 STEP 1: Get the app
 ----------------------
-You should have received a file called "Spotify Now Playing.exe".
+You should have received a file called "Blurs Spotify Widget.exe".
 Put it wherever you like (Desktop is fine).
 
 
 STEP 2: Run it
 -----------------
-1. Double-click "Spotify Now Playing.exe"
+1. Double-click "Blurs Spotify Widget.exe"
 2. If Windows shows a blue box saying "Windows protected your PC":
      - Click "More info"
      - Click "Run anyway"
@@ -45,7 +45,7 @@ THAT'S IT
 -----------
 Every time you want to stream:
  - Open Spotify and play something
- - Double-click "Spotify Now Playing.exe" again
+ - Double-click "Blurs Spotify Widget.exe" again
  - Open OBS, the widget source you already added will just work
 
 If the widget ever gets stuck or stops updating, right-click it
