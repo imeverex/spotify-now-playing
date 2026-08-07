@@ -52,6 +52,17 @@ STEP 3: Start the widget
    are streaming. If you close it, the widget stops working.
 
 
+STEP 3.5: Add a Desktop icon (optional)
+------------------------------------------
+If you'd rather double-click a nice icon than dig through the
+folder every time:
+
+1. In the folder from Step 1, find "create-shortcut.ps1"
+2. Right-click it, choose "Run with PowerShell"
+3. A "Spotify Now Playing" icon will appear on your Desktop -
+   use that from now on instead of "start-widget"
+
+
 STEP 4: Add it to OBS
 ------------------------
 1. Open OBS
