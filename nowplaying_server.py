@@ -1,4 +1,6 @@
 import asyncio
+import sys
+import tempfile
 import threading
 import time
 from pathlib import Path
@@ -15,7 +17,10 @@ from winsdk.windows.storage.streams import Buffer, DataReader, InputStreamOption
 APP_ID_FILTER = "spotify"
 POLL_INTERVAL = 1.0
 
-ART_PATH = Path(__file__).parent / "current_art.png"
+# When frozen by PyInstaller, bundled files (like static/) live under
+# sys._MEIPASS instead of next to this script.
+BASE_DIR = Path(getattr(sys, "_MEIPASS", Path(__file__).parent))
+ART_PATH = Path(tempfile.gettempdir()) / "spotify_nowplaying_art.png"
 
 state_lock = threading.Lock()
 state = {"title": None, "artist": None, "album": None, "playing": False, "art_available": False}
@@ -77,7 +82,7 @@ def poll_loop():
         time.sleep(POLL_INTERVAL)
 
 
-app = Flask(__name__, static_folder="static", static_url_path="")
+app = Flask(__name__, static_folder=str(BASE_DIR / "static"), static_url_path="")
 
 
 @app.get("/nowplaying.json")
@@ -93,6 +98,16 @@ def art():
     return send_file(ART_PATH, mimetype="image/png", max_age=0)
 
 
+def minimize_console():
+    import ctypes
+
+    hwnd = ctypes.windll.kernel32.GetConsoleWindow()
+    if hwnd:
+        SW_MINIMIZE = 6
+        ctypes.windll.user32.ShowWindow(hwnd, SW_MINIMIZE)
+
+
 if __name__ == "__main__":
+    minimize_console()
     threading.Thread(target=poll_loop, daemon=True).start()
     app.run(host="127.0.0.1", port=5960)

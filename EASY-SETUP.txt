@@ -3,67 +3,29 @@
 ======================================
 
 This makes a little box show up in OBS with whatever song is
-currently playing in Spotify. Follow these steps in order.
+currently playing in Spotify.
 
 
-STEP 1: Download the widget
-----------------------------
-1. Open a web browser (Chrome, Edge, whatever you use)
-2. Go to this address:
-   https://github.com/imeverex/spotify-now-playing
-3. Click the green button that says "Code"
-4. Click "Download ZIP"
-5. Find the downloaded file (usually in your Downloads folder),
-   it will be called "spotify-now-playing-main.zip"
-6. Right-click it and choose "Extract All", then click Extract
-7. Open the folder that appears
+STEP 1: Get the app
+----------------------
+You should have received a file called "Spotify Now Playing.exe".
+Put it wherever you like (Desktop is fine).
 
 
-STEP 2: Install Python (one-time only)
-----------------------------------------
-This widget needs a free program called Python to run.
-
-1. Click the Start button (bottom left of your screen)
-2. Type: PowerShell
-3. Click "Windows PowerShell" when it shows up
-4. Copy this command, then paste it into that PowerShell window
-   and press Enter:
-
-   winget install --id Python.Python.3.12
-
-5. If it asks a question and shows [Y] Yes, type Y and press Enter
-6. Wait for it to finish, then close the window
-
-
-STEP 3: Start the widget
---------------------------
-1. Go back to the folder from Step 1
-2. Double-click the file called "start-widget"
-   (it may just show a gear/cog icon, that's the right one)
-3. If Windows shows a blue box saying "Windows protected your PC":
+STEP 2: Run it
+-----------------
+1. Double-click "Spotify Now Playing.exe"
+2. If Windows shows a blue box saying "Windows protected your PC":
      - Click "More info"
      - Click "Run anyway"
-   (This is normal, it just means the file isn't from the
-   Microsoft Store, it's still safe, it's the file you just made)
-4. A black window will pop up. The FIRST time you run it, it will
-   take a minute or two to set itself up, just let it do its thing.
-5. Once it says "Starting Spotify now-playing widget server...",
-   it's ready. Leave this black window open the whole time you
-   are streaming. If you close it, the widget stops working.
+   (This is normal for apps that aren't from the Microsoft Store,
+   it's still safe)
+3. That's it, it's now running quietly in the background (it
+   minimizes itself automatically). Leave it running the whole
+   time you're streaming - closing it stops the widget.
 
 
-STEP 3.5: Add a Desktop icon (optional)
-------------------------------------------
-If you'd rather double-click a nice icon than dig through the
-folder every time:
-
-1. In the folder from Step 1, find "create-shortcut.ps1"
-2. Right-click it, choose "Run with PowerShell"
-3. A "Spotify Now Playing" icon will appear on your Desktop -
-   use that from now on instead of "start-widget"
-
-
-STEP 4: Add it to OBS
+STEP 3: Add it to OBS
 ------------------------
 1. Open OBS
 2. Under "Sources", click the + button
@@ -83,7 +45,7 @@ THAT'S IT
 -----------
 Every time you want to stream:
  - Open Spotify and play something
- - Double-click "start-widget" again (from the folder in Step 1)
+ - Double-click "Spotify Now Playing.exe" again
  - Open OBS, the widget source you already added will just work
 
 If the widget ever gets stuck or stops updating, right-click it
