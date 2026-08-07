@@ -1,52 +1,14 @@
-======================================
- SPOTIFY NOW PLAYING WIDGET - EASY SETUP
-======================================
+BLURS SPOTIFY WIDGET - SETUP
 
-This makes a little box show up in OBS with whatever song is
-currently playing in Spotify.
-
-
-STEP 1: Get the app
-----------------------
-You should have received a file called "Blurs Spotify Widget.exe".
-Put it wherever you like (Desktop is fine).
-
-
-STEP 2: Run it
------------------
 1. Double-click "Blurs Spotify Widget.exe"
-2. If Windows shows a blue box saying "Windows protected your PC":
-     - Click "More info"
-     - Click "Run anyway"
-   (This is normal for apps that aren't from the Microsoft Store,
-   it's still safe)
-3. That's it, it's now running quietly in the background (it
-   minimizes itself automatically). Leave it running the whole
-   time you're streaming - closing it stops the widget.
+   If Windows warns about an unrecognized app: "More info" -> "Run anyway"
+   It minimizes itself automatically - leave it running while you stream.
 
+2. In OBS: Sources -> + -> Browser -> name it whatever you want
+   URL: http://127.0.0.1:5960/overlay.html
+   Width: 500, Height: 150
 
-STEP 3: Add it to OBS
-------------------------
-1. Open OBS
-2. Under "Sources", click the + button
-3. Click "Browser"
-4. Give it any name (like "Spotify Widget") and click OK
-5. In the "URL" box, delete whatever is there and paste this in:
+3. Play something in Spotify - the widget shows up in OBS.
 
-   http://127.0.0.1:5960/overlay.html
-
-6. Set Width to 500 and Height to 150
-7. Click OK
-8. Play a song in Spotify - the widget should appear in OBS
-   showing the song title and artist
-
-
-THAT'S IT
------------
-Every time you want to stream:
- - Open Spotify and play something
- - Double-click "Blurs Spotify Widget.exe" again
- - Open OBS, the widget source you already added will just work
-
-If the widget ever gets stuck or stops updating, right-click it
-in OBS and choose "Refresh".
+To stop it, close the running instance from the taskbar. If it ever
+gets stuck, right-click the source in OBS and hit Refresh.
