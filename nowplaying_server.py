@@ -5,7 +5,7 @@ import threading
 import time
 from pathlib import Path
 
-from flask import Flask, jsonify, send_file, abort
+from flask import Flask, jsonify, send_file, abort, redirect
 from winsdk.windows.media.control import (
     GlobalSystemMediaTransportControlsSessionManager as MediaManager,
     GlobalSystemMediaTransportControlsSessionPlaybackStatus as PlaybackStatus,
@@ -85,6 +85,11 @@ def poll_loop():
 app = Flask(__name__, static_folder=str(BASE_DIR / "static"), static_url_path="")
 
 
+@app.get("/")
+def index():
+    return redirect("/overlay.html")
+
+
 @app.get("/nowplaying.json")
 def nowplaying():
     with state_lock:
@@ -98,16 +103,32 @@ def art():
     return send_file(ART_PATH, mimetype="image/png", max_age=0)
 
 
-def minimize_console():
+def set_console_icon_and_minimize():
     import ctypes
 
     hwnd = ctypes.windll.kernel32.GetConsoleWindow()
-    if hwnd:
-        SW_MINIMIZE = 6
-        ctypes.windll.user32.ShowWindow(hwnd, SW_MINIMIZE)
+    if not hwnd:
+        return
+
+    # Windows' console host doesn't always pick up the exe's embedded icon
+    # for the taskbar entry on its own, so pull it out and set it explicitly.
+    large = ctypes.c_void_p()
+    small = ctypes.c_void_p()
+    count = ctypes.windll.shell32.ExtractIconExW(sys.executable, 0, ctypes.byref(large), ctypes.byref(small), 1)
+    WM_SETICON = 0x0080
+    ICON_SMALL = 0
+    ICON_BIG = 1
+    if count > 0:
+        if small.value:
+            ctypes.windll.user32.SendMessageW(hwnd, WM_SETICON, ICON_SMALL, small)
+        if large.value:
+            ctypes.windll.user32.SendMessageW(hwnd, WM_SETICON, ICON_BIG, large)
+
+    SW_MINIMIZE = 6
+    ctypes.windll.user32.ShowWindow(hwnd, SW_MINIMIZE)
 
 
 if __name__ == "__main__":
-    minimize_console()
+    set_console_icon_and_minimize()
     threading.Thread(target=poll_loop, daemon=True).start()
     app.run(host="127.0.0.1", port=5960)
