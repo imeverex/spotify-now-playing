@@ -17,5 +17,8 @@ winget install --id Python.Python.3.12
 
 http://127.0.0.1:5960/overlay.html
 
+   Set Width to at least 350 and Height to 150. Going narrower than
+   350 can clip the right edge of the widget on longer song titles.
+
 Note: this runs on port 5960 (not 5959), so it can run alongside
 the Tidal widget at the same time without conflicting.

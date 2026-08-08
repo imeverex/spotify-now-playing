@@ -6,7 +6,8 @@ BLURS SPOTIFY WIDGET - SETUP
 
 2. In OBS: Sources -> + -> Browser -> name it whatever you want
    URL: http://127.0.0.1:5960/overlay.html
-   Width: 500, Height: 150
+   Width: 500, Height: 150 (don't go narrower than 350 wide, or
+   long song titles can get their right edge clipped off)
 
 3. Play something in Spotify - the widget shows up in OBS.
 
