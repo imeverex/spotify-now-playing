@@ -3,21 +3,23 @@ const POLL_MS = 1000;
 const widget = document.getElementById("widget");
 const artEl = document.getElementById("art");
 const titleEl = document.getElementById("title");
+const titleDupEl = document.getElementById("titleDup");
+const titleTrackEl = document.getElementById("titleTrack");
 const titleClipEl = document.querySelector(".title-clip");
 const artistEl = document.getElementById("artist");
 
-function updateTitleScroll() {
-  titleEl.classList.remove("scrolling");
-  titleEl.style.removeProperty("--scroll-distance");
-  titleEl.style.removeProperty("--scroll-duration");
+const SCROLL_PX_PER_SEC = 22;
 
-  const overflow = titleEl.scrollWidth - titleClipEl.clientWidth;
+function updateTitleScroll() {
+  titleTrackEl.classList.remove("scrolling");
+  titleTrackEl.style.removeProperty("--scroll-duration");
+
+  const singleWidth = titleEl.offsetWidth;
+  const overflow = singleWidth - titleClipEl.clientWidth;
   if (overflow > 4) {
-    const distance = -(overflow + 12);
-    const duration = Math.max(4, Math.abs(distance) / 30);
-    titleEl.style.setProperty("--scroll-distance", `${distance}px`);
-    titleEl.style.setProperty("--scroll-duration", `${duration}s`);
-    titleEl.classList.add("scrolling");
+    const duration = Math.max(6, singleWidth / SCROLL_PX_PER_SEC);
+    titleTrackEl.style.setProperty("--scroll-duration", `${duration}s`);
+    titleTrackEl.classList.add("scrolling");
   }
 }
 
@@ -54,6 +56,7 @@ async function tick() {
     }
 
     titleEl.textContent = data.title;
+    titleDupEl.textContent = data.title;
     artistEl.textContent = data.artist || "";
     artEl.src = data.art_available ? `/art.png?t=${Date.now()}` : "";
     updateTitleScroll();

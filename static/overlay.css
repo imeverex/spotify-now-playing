@@ -72,22 +72,31 @@ body {
   white-space: nowrap;
 }
 
+.title-track {
+  display: inline-flex;
+  white-space: nowrap;
+}
+
 .title {
   display: inline-block;
   color: #ffffff;
   font-size: 16px;
   font-weight: 600;
   white-space: nowrap;
+  padding-right: 40px;
 }
 
-.title.scrolling {
-  animation: title-scroll var(--scroll-duration, 8s) ease-in-out infinite;
+.title-track.scrolling {
+  animation: title-scroll var(--scroll-duration, 14s) linear infinite;
+}
+
+.title-track:not(.scrolling) #titleDup {
+  display: none;
 }
 
 @keyframes title-scroll {
-  0%, 15% { transform: translateX(0); }
-  50% { transform: translateX(var(--scroll-distance, 0px)); }
-  85%, 100% { transform: translateX(0); }
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
 .artist {
