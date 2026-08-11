@@ -67,13 +67,27 @@ body {
   margin-bottom: 2px;
 }
 
+.title-clip {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 .title {
+  display: inline-block;
   color: #ffffff;
   font-size: 16px;
   font-weight: 600;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+}
+
+.title.scrolling {
+  animation: title-scroll var(--scroll-duration, 8s) ease-in-out infinite;
+}
+
+@keyframes title-scroll {
+  0%, 15% { transform: translateX(0); }
+  50% { transform: translateX(var(--scroll-distance, 0px)); }
+  85%, 100% { transform: translateX(0); }
 }
 
 .artist {
