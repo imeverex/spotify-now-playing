@@ -1,6 +1,6 @@
-BLURS SPOTIFY WIDGET - SETUP
+EVEREX SPOTIFY WIDGET - SETUP
 
-1. Double-click "Blurs Spotify Widget.exe"
+1. Double-click "EVEREX Spotify Widget.exe"
    If Windows warns about an unrecognized app: "More info" -> "Run anyway"
    It minimizes itself automatically - leave it running while you stream.
 

@@ -2,7 +2,7 @@ $here = Split-Path -Parent $MyInvocation.MyCommand.Path
 $desktop = [Environment]::GetFolderPath("Desktop")
 
 $WshShell = New-Object -ComObject WScript.Shell
-$Shortcut = $WshShell.CreateShortcut((Join-Path $desktop "Spotify Now Playing.lnk"))
+$Shortcut = $WshShell.CreateShortcut((Join-Path $desktop "EVEREX Spotify Widget.lnk"))
 $Shortcut.TargetPath = Join-Path $here "start-widget.bat"
 $Shortcut.WorkingDirectory = $here
 $Shortcut.IconLocation = Join-Path $here "app-icon.ico"
